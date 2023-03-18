@@ -24,8 +24,8 @@ export const Newtransaction = () => {
   };
 
   return (
-    <div className="flex">
-      <div className="alert shadow-lg mx-10 my-2 justify-center">
+    <div className="flex w-full justify-center">
+      <div className="alert shadow-md mx-10 my-2 justify-center w-8/12">
         <div>
           <div className="">
             <h3 className="font-bold">Add New Transaction</h3>
@@ -41,11 +41,11 @@ export const Newtransaction = () => {
                   required
                 />
               </div>
-              
+
               <div className="flex-auto w-full">
                 <input
                   id="money"
-                  type="text"
+                  type="number"
                   placeholder="Amount in INR"
                   className="flex-auto w-full input  my-1 input-sm"
                   value={amount}
@@ -68,7 +68,9 @@ export const Newtransaction = () => {
 
               {type === "B" || type === "L" ? (
                 <div>
-                  
+                  <div className="text-xs justify flex">
+                    Whom did you borrow from/lent to?{" "}
+                  </div>
                   <select
                     class="select select-bordered select-sm w-full max-w-xs my-1"
                     value={person}
@@ -82,7 +84,6 @@ export const Newtransaction = () => {
                     <option value="Pr">Pr</option>
                     <option value="Na">Na</option>
                   </select>
-                  {person}
                 </div>
               ) : null}
 

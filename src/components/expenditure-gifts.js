@@ -24,12 +24,11 @@ export const ExpenditureGifts = () => {
   });
 
   return (
-    <div className="flex">
-      <div className="flex alert shadow-lg mx-10 my-2 justify-center">
-        <table className=" flex table table-compact w-9/12 justify-center mx-10 shadow-lg rounded-lg">
+    <div className="flex w-full justify-center overflow-auto">
+      <div className="flex alert shadow-md mx-10 my-2 justify-center w-8/12 overflow-auto">
+        <table className=" flex table table-compact justify-center mx-10 shadow-md rounded-lg overflow-auto">
           <thead>
             <tr>
-            
               <th>Description</th>
               <th>Amount</th>
               <th>Type</th>
@@ -38,7 +37,6 @@ export const ExpenditureGifts = () => {
           <tbody>
             {Object.entries(gifts).map(([key, value]) => (
               <tr>
-              
                 <td>{key}</td>
                 <td>{value}</td>
                 <td>Gifts</td>
@@ -46,10 +44,12 @@ export const ExpenditureGifts = () => {
             ))}
           </tbody>
         </table>
-        <table className="table table-compact w-9/12 mx-10  rounded-lg shadow-lg">
+        <table
+          className="table table-compact mx-10 rounded-lg shadow-lg"
+          overflow-auto
+        >
           <thead>
             <tr>
-              
               <th>Description</th>
               <th>Amount</th>
               <th>Type</th>

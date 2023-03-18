@@ -33,46 +33,40 @@ export const BorrowingLending = () => {
   );
 
   return (
-    <div className="flex">
-      <div className="flex alert shadow-lg mx-10 my-2 justify-center overflow-auto">
+    <div className="flex w-full justify-center">
+      <div className="sm:flex alert shadow-lg mx-10 my-2 justify-center w-8/12">
         <div>
-          <div className="flex w-full">
-            <div className="">
-              <div className="">
-                {Object.entries(askforMoney).map(([key, value]) => (
-                  <div className=" card-compact w-60 bg-lime-300 shadow-xl rounded-lg my-2">
-                    <div className="card-body">
+          <div className="sm:flex w-full">
+            <div className="flex w-full justify-center">
+              {Object.entries(askforMoney).map(([key, value]) => (
+                <div className=" card-compact w-60 bg-lime-300 shadow-md rounded-lg my-2 mx-1 w-8/12">
+                  <div className="card-body">
                     <div className="avatar placeholder">
-                        <div className="bg-neutral-focus text-neutral-content rounded-full w-8">
-                          <span className="text-xs">{key}</span>
-                        </div>
+                      <div className="bg-neutral-focus text-neutral-content rounded-full w-8">
+                        <span className="text-xs">{key}</span>
                       </div>
-                      <p>
-                        You need to ask INR {-value} to settle up!
-                      </p>
                     </div>
+                    <p>You need to ask INR {-value} to settle up!</p>
                   </div>
-                ))}
-              </div>
+                </div>
+              ))}
             </div>
+
             <div className="divider divider-horizontal"></div>
-            <div className="">
-              <div className="">
-                {Object.entries(payBack).map(([key, value]) => (
-                  <div className="card-compact w-60 bg-red-300 shadow-xl rounded-lg my-2">
-                    <div className="card-body">
-                      <div className="avatar placeholder">
-                        <div className="bg-neutral-focus text-neutral-content rounded-full w-8">
-                          <span className="text-xs">{key}</span>
-                        </div>
+
+            <div className="flex w-full justify-center">
+              {Object.entries(payBack).map(([key, value]) => (
+                <div className="card-compact w-60 bg-red-300 shadow-md rounded-lg my-2 mx-1 w-8/12">
+                  <div className="card-body">
+                    <div className="avatar placeholder">
+                      <div className="bg-neutral-focus text-neutral-content rounded-full w-8">
+                        <span className="text-xs">{key}</span>
                       </div>
-                      <p>
-                        You need to pay INR {value} to settle up!
-                      </p>
                     </div>
+                    <p>You need to pay INR {value} to settle up!</p>
                   </div>
-                ))}
-              </div>
+                </div>
+              ))}
             </div>
           </div>
         </div>

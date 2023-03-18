@@ -10,9 +10,12 @@ function App() {
   return (
     <GlobalProvider>
       <Header />
-      <Balance balance="234" />
-      <Newtransaction />
-      <History />
+      <div>
+        <Balance balance="234" />
+        <Newtransaction />
+        <History />
+      </div>
+
       
     </GlobalProvider>
   );

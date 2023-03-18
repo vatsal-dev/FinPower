@@ -11,8 +11,9 @@ function App() {
     <GlobalProvider>
       <Header />
       <Balance balance="234" />
-      <History />
       <Newtransaction />
+      <History />
+      
     </GlobalProvider>
   );
 }

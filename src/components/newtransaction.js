@@ -25,7 +25,7 @@ export const Newtransaction = () => {
 
   return (
     <div className="flex">
-      <div className="alert shadow-lg mx-10 my-2 ">
+      <div className="alert shadow-lg mx-10 my-2 justify-center">
         <div>
           <div className="">
             <h3 className="font-bold">Add New Transaction</h3>

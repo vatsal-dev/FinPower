@@ -11,12 +11,22 @@ function App() {
     <GlobalProvider>
       <Header />
       <div>
-        <Balance balance="234" />
-        <Newtransaction />
+        <div className="flex w-full my-5 overflow-auto">
+          <div className=" h-auto flex-grow card rounded-box place-items-center overflow-auto">
+            <Balance balance="234" />
+          </div>
+          <div className="divider divider-horizontal"></div>
+          <div className="grid h-auto flex-grow card  rounded-box place-items-center overflow-auto">
+            <Newtransaction />
+          </div>
+          <div className="divider divider-horizontal"></div>
+          <div className="grid h-auto flex-grow card  rounded-box place-items-center overflow-auto">
+            <Newtransaction />
+          </div>
+        </div>
+
         <History />
       </div>
-
-      
     </GlobalProvider>
   );
 }

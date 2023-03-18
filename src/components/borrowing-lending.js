@@ -34,7 +34,7 @@ export const BorrowingLending = () => {
 
   return (
     <div className="flex">
-      <div className="flex alert shadow-lg mx-10 my-2 justify-center">
+      <div className="flex alert shadow-lg mx-10 my-2 justify-center overflow-auto">
         <div>
           <div className="flex w-full">
             <div className="">

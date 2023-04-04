@@ -1,5 +1,6 @@
 import React, { useState, useContext } from "react";
 import { GlobalContext } from "../context/GlobalStats";
+import "../App.css";
 
 export const Newtransaction = () => {
   const { addTransaction } = useContext(GlobalContext);
@@ -35,7 +36,7 @@ export const Newtransaction = () => {
                   id="desc"
                   type="text"
                   placeholder="Description"
-                  className="flex-auto w-full input my-1 input-sm"
+                  className="block w-full pl-3 pr-10 py-2 rounded-lg border-gray-300 bg-white text-gray-900 placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-purple-600 focus:border-transparent my-1 shadow-md"
                   value={text}
                   onChange={(e) => setText(e.target.value)}
                   required
@@ -47,14 +48,14 @@ export const Newtransaction = () => {
                   id="money"
                   type="number"
                   placeholder="Amount in INR"
-                  className="flex-auto w-full input  my-1 input-sm"
+                  className="block w-full pl-3 pr-10 py-2 rounded-lg border-gray-300 bg-white text-gray-900 placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-purple-600 focus:border-transparent my-1 shadow-md"
                   value={amount}
                   onChange={(e) => setAmount(e.target.value)}
                 />
               </div>
 
               <select
-                class="select select-bordered select-sm w-full max-w-xs my-1"
+                class="block appearance-none w-full bg-white border-gray-300 text-gray-900 py-2 pl-3 pr-10 rounded-lg shadow-md leading-tight focus:outline-none focus:ring-2 focus:ring-purple-600 focus:border-transparent my-1"
                 value={type}
                 onChange={(e) => setType(e.target.value)}
               >
@@ -89,7 +90,7 @@ export const Newtransaction = () => {
 
               <div className=" w-full my-1">
                 <button
-                  className=" w-full btn btn-success btn-sm"
+                  className="fluent-button"
                   onClick={() => onSubmit(text, amount, type, person)}
                 >
                   Add

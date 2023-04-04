@@ -23,3 +23,52 @@
     0px 3px 14px 2px rgba(100, 102, 143, 0.12);
   transform: translateY(-2px);
 }
+
+/* textbox */
+.fluent-textbox {
+  display: block;
+  width: 100%;
+  padding-left: 0.75rem;
+  padding-right: 2.5rem;
+  padding-top: 0.5rem;
+  padding-bottom: 0.5rem;
+  border-radius: 0.5rem;
+  border-color: #e2e8f0;
+  background-color: #fff;
+  color: #1a202c;
+  ::placeholder {
+    color: #a0aec0;
+  }
+  outline: 2px solid transparent;
+  outline-offset: 2px;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1),
+    0 2px 4px -1px rgba(0, 0, 0, 0.06);
+}
+
+.fluent-textbox:focus {
+  box-shadow: none;
+  outline: 2px solid #7c3aed;
+}
+
+.fluent-textbox:focus::ring {
+  box-shadow: none;
+  outline: 2px solid #7c3aed;
+}
+
+.fluent-textbox:focus:border {
+  outline: none;
+}
+
+.fluent-textbox.my-1 {
+  margin-top: 0.25rem;
+  margin-bottom: 0.25rem;
+}
+
+.fluent-bg-gradient {
+  background-color: #6574cd;
+  background-image: linear-gradient(90deg, #6574cd 0%, #4e6bff 100%);
+  color: white;
+  border-radius: 9999px;
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(10px);
+}

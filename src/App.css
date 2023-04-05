@@ -72,3 +72,21 @@
   box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
   backdrop-filter: blur(10px);
 }
+
+/* special card */
+.special-card {
+  background-color: #6574cd;
+  background-image: linear-gradient(90deg, #6574cd 0%, #4e6bff 100%);
+  color: white;
+  transition: background 0.5s ease;
+  border-radius: 20px;
+box-shadow: 0 6px 10px rgba(0, 0, 0, 0.2);
+padding: 30px;
+width: 400px;
+font-weight: bold;
+font-size: 1.2rem;
+}
+
+.special-card:hover {
+  background-color: #4e6bff;
+}

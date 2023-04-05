@@ -10,7 +10,7 @@ export const Balance = (props) => {
 
   return (
     <div className="flex w-full justify-center">
-      <div className="md:flex alert shadow-md mx-10 my-2 justify-center w-8/12">
+      <div className="special-card">
         <div>
           <div>
             Amount left:

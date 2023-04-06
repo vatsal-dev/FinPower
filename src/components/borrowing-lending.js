@@ -7,14 +7,14 @@ export const BorrowingLending = () => {
   const totals = {};
 
   transactions.forEach((transaction) => {
-    if (transaction.type === "B" || transaction.type === "L") {
+    if (transaction.type === "borrow" || transaction.type === "lend") {
       if (!totals[transaction.person]) {
         totals[transaction.person] = 0;
       }
-      if (transaction.type === "B") {
+      if (transaction.type === "borrow") {
         totals[transaction.person] += transaction.amount;
       }
-      if (transaction.type === "L") {
+      if (transaction.type === "lend") {
         totals[transaction.person] -= transaction.amount;
       }
     }

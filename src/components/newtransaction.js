@@ -4,12 +4,23 @@ import "../App.css";
 import { WithContext as ReactTags } from "react-tag-input";
 
 export const Newtransaction = () => {
+  const options = [
+    { value: "exp", label: "Exp" },
+    { value: "gift", label: "Gift" },
+    { value: "borrow", label: "Borrow" },
+    { value: "lend", label: "Lend" },
+  ];
+
   const { addTransaction } = useContext(GlobalContext);
   const [text, setText] = useState("");
   const [amount, setAmount] = useState();
-  const [type, setType] = useState("E");
+  const [type, setType] = useState(options[0].value);
   const [person, setPerson] = useState("");
-  const [tags, setTags] = useState([{ id: "Thailand", text: "Thailand" }]);
+  const [tags, setTags] = useState([]);
+
+  const handleOptionChange = (value) => {
+    setType(value);
+  };
 
   const onSubmit = (text, amount, type, person, tags) => {
     const newTransaction = {
@@ -82,26 +93,31 @@ export const Newtransaction = () => {
                 />
               </div>
 
-              <select
-                className="block appearance-none w-full bg-white border-gray-300 text-gray-900 py-2 pl-3 pr-10 rounded-lg shadow-md leading-tight focus:outline-none focus:ring-2 focus:ring-purple-600 focus:border-transparent my-1 dropdown-content menu p-2 shadow bg-base-100 rounded-box"
-                value={type}
-                onChange={(e) => setType(e.target.value)}
-              >
-                <option selected value="E">
-                  Expenditure
-                </option>
-                <option value="B">Borrowed</option>
-                <option value="L">Lent</option>
-                <option value="G">Gift</option>
-              </select>
+              <div className="flex flex-wrap justify-start gap-4">
+                {options.map((option) => (
+                  <label
+                    key={option.value}
+                    className="inline-flex items-center cursor-pointer text-gray-700"
+                  >
+                    <input
+                      type="radio"
+                      className="form-radio h-3 w-3 text-purple-600"
+                      value={option.value}
+                      checked={type === option.value}
+                      onChange={() => handleOptionChange(option.value)}
+                    />
+                    <span className="ml-1">{option.label}</span>
+                  </label>
+                ))}
+              </div>
 
-              {type === "B" || type === "L" ? (
+              {type === "borrow" || type === "lend" ? (
                 <div>
                   <div className="text-xs justify flex">
                     Whom did you borrow from/lent to?{" "}
                   </div>
                   <select
-                    class="select select-bordered select-sm w-full max-w-xs my-1"
+                    className="select select-bordered select-sm w-full max-w-xs my-1"
                     value={person}
                     onChange={(e) => setPerson(e.target.value)}
                   >

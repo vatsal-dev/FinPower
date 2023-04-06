@@ -7,14 +7,14 @@ export const ExpenditureGifts = () => {
   const expenditure = {};
   const gifts = {};
   transactions.forEach((transaction) => {
-    if (transaction.type === "E") {
+    if (transaction.type === "exp") {
       if (!expenditure[transaction.text]) {
         expenditure[transaction.text] = transaction.amount;
       } else {
         expenditure[transaction.text] += transaction.amount;
       }
     }
-    if (transaction.type === "G") {
+    if (transaction.type === "gift") {
       if (!gifts[transaction.text]) {
         gifts[transaction.text] = transaction.amount;
       } else {

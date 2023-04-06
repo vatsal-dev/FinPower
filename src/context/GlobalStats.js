@@ -28,7 +28,21 @@ export const GlobalProvider = ({ children }) => {
       type: "ADD_TRANSACTION",
       payload: transaction,
     });
+
+    const transactions = JSON.parse(localStorage.getItem("transactions")) || [];
+    localStorage.setItem(
+      "transactions",
+      JSON.stringify([...transactions, transaction])
+    );
   }
+
+  React.useEffect(() => {
+    const transactions = JSON.parse(localStorage.getItem("transactions")) || [];
+    dispatch({
+      type: "LOAD_TRANSACTIONS",
+      payload: transactions,
+    });
+  }, []);
   return (
     <GlobalContext.Provider
       value={{

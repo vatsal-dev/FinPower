@@ -33,16 +33,16 @@ export const BorrowingLending = () => {
   );
 
   return (
-    <div className="flex w-full justify-center">
-      <div className="sm:flex alert shadow-lg mx-10 my-2 justify-center w-8/12">
+    <div className="flex flex-wrap justify-center">
+      <div className="sm:flex alert shadow-lg mx-10 my-2 justify-center w-full ">
         <div>
           <div className="sm:flex w-full">
             <div className="flex w-full justify-center">
               {Object.entries(askforMoney).map(([key, value]) => (
-                <div className=" card-compact w-60 bg-lime-300 shadow-md rounded-lg my-2 mx-1 w-8/12">
-                  <div className="card-body">
+                <div className=" card-compact w-full bg-lime-300 shadow-md rounded-lg sm:w-1/2 md:w-1/3 lg:w-1/4 xl:w-1/5 px-2 py-1 mx-1 my-1">
+                  <div className="card-body flex items-center justify-between">
                     <div className="avatar placeholder">
-                      <div className="bg-neutral-focus text-neutral-content rounded-full w-8">
+                      <div className="bg-neutral-focus text-neutral-content rounded-full h-8 w-8 flex items-center justify-center">
                         <span className="text-xs">{key}</span>
                       </div>
                     </div>
@@ -52,14 +52,12 @@ export const BorrowingLending = () => {
               ))}
             </div>
 
-            <div className="divider divider-horizontal"></div>
-
             <div className="flex w-full justify-center">
               {Object.entries(payBack).map(([key, value]) => (
-                <div className="card-compact w-60 bg-red-300 shadow-md rounded-lg my-2 mx-1 w-8/12">
-                  <div className="card-body">
+                <div className="card-compact w-full bg-red-300 shadow-md rounded-lg sm:w-1/2 md:w-1/3 lg:w-1/4 xl:w-1/5 px-2 py-1 mx-1 my-1">
+                  <div className="card-body flex items-center justify-between">
                     <div className="avatar placeholder">
-                      <div className="bg-neutral-focus text-neutral-content rounded-full w-8">
+                      <div className="bg-neutral-focus text-neutral-content rounded-full h-8 w-8 flex items-center justify-center">
                         <span className="text-xs">{key}</span>
                       </div>
                     </div>

@@ -1,70 +1,85 @@
-import React, { useState, useContext } from "react";
+import React, { useState, useContext, useEffect } from "react";
 import { GlobalContext } from "../context/GlobalStats";
 
 export const ExpenditureGifts = () => {
   const { transactions } = useContext(GlobalContext);
 
-  const expenditure = {};
-  const gifts = {};
-  transactions.forEach((transaction) => {
-    if (transaction.type === "exp") {
-      if (!expenditure[transaction.text]) {
-        expenditure[transaction.text] = transaction.amount;
-      } else {
-        expenditure[transaction.text] += transaction.amount;
+  const [expenditure, setExpenditure] = useState({});
+  const [gifts, setGifts] = useState({});
+
+  useEffect(() => {
+    let newExpenditure = {};
+    let newGifts = {};
+
+    transactions.forEach((transaction) => {
+      if (transaction.type === "exp") {
+        if (!newExpenditure[transaction.text]) {
+          newExpenditure[transaction.text] = transaction.amount;
+        } else {
+          newExpenditure[transaction.text] += transaction.amount;
+        }
+      } else if (transaction.type === "gift") {
+        if (!newGifts[transaction.text]) {
+          newGifts[transaction.text] = transaction.amount;
+        } else {
+          newGifts[transaction.text] += transaction.amount;
+        }
       }
-    }
-    if (transaction.type === "gift") {
-      if (!gifts[transaction.text]) {
-        gifts[transaction.text] = transaction.amount;
-      } else {
-        gifts[transaction.text] += transaction.amount;
-      }
-    }
-  });
+    });
+
+    setExpenditure(newExpenditure);
+    setGifts(newGifts);
+  }, [transactions]);
 
   return (
-    <div className="flex w-full justify-center overflow-auto">
-      <div className="flex alert shadow-md mx-10 my-2 justify-center w-8/12 overflow-auto">
-        <table className=" flex table table-compact justify-center mx-10 shadow-md rounded-lg overflow-auto">
-          <thead>
-            <tr>
-              <th>Description</th>
-              <th>Amount</th>
-              <th>Type</th>
-            </tr>
-          </thead>
-          <tbody>
-            {Object.entries(gifts).map(([key, value]) => (
-              <tr>
-                <td>{key}</td>
-                <td>{value}</td>
-                <td>Gifts</td>
-              </tr>
-            ))}
-          </tbody>
-        </table>
-        <table
-          className="table table-compact mx-10 rounded-lg shadow-lg"
-          overflow-auto
-        >
-          <thead>
-            <tr>
-              <th>Description</th>
-              <th>Amount</th>
-              <th>Type</th>
-            </tr>
-          </thead>
-          <tbody>
-            {Object.entries(expenditure).map(([key, value]) => (
-              <tr>
-                <td>{key}</td>
-                <td>{value}</td>
-                <td>Expenditure</td>
-              </tr>
-            ))}
-          </tbody>
-        </table>
+    <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+      <div className="bg-white shadow-lg rounded-lg overflow-hidden mx-2 my-2">
+        <div className="p-2 bg-red-300 text-black">
+          <h2 className="text-lg font-semibold">Expenses</h2>
+        </div>
+        <div className="p-2">
+          {Object.keys(expenditure).length === 0 ? (
+            <p className="text-gray-500">No expenses to display.</p>
+          ) : (
+            <ul className="list-disc list-inside">
+              {Object.entries(expenditure).map(([key, value]) => (
+                <li className="mb-1 flex justify-between" key={key}>
+                  <span>{key}</span>
+                  <span className="inline-flex items-center px-2.5 py-0.5 rounded-md text-sm font-medium bg-blue-100 text-blue-800">
+                    INR {value}
+                  </span>
+                  <button className="inline-flex items-center px-2 py-1 ml-2 border border-transparent text-xs font-medium rounded-md text-white bg-red-500 hover:bg-red-600 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-red-500">
+                    Delete
+                  </button>
+                </li>
+              ))}
+            </ul>
+          )}
+        </div>
+      </div>
+      <div className="bg-white shadow-lg rounded-lg overflow-hidden mx-2 my-2">
+        <div className="p-2 bg-lime-300 text-black">
+          <h2 className="text-lg font-semibold">Gifts</h2>
+        </div>
+        <div className="p-2">
+          {Object.keys(gifts).length === 0 ? (
+            <p className="text-gray-500">No gifts to display.</p>
+          ) : (
+            <ul className="list-disc list-inside">
+              {Object.entries(gifts).map(([key, value]) => (
+                <li className="mb-1 flex justify-between" key={key}>
+                  <span>{key}</span>
+                  <span className="inline-flex items-center px-2.5 py-0.5 rounded-md text-sm font-medium bg-blue-100 text-blue-800">
+                    INR {value}
+                  </span>
+                  <button className="inline-flex items-center px-2 py-1 ml-2 border border-transparent text-xs font-medium rounded-md text-white bg-red-500 hover:bg-red-600 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-red-500">
+                    Delete
+                  </button>
+                </li>
+              ))}
+            </ul>
+          )}
+        </div>
       </div>
     </div>
   );

@@ -2,10 +2,11 @@ import React, { useMemo } from "react";
 import { Box, useTheme } from "@mui/material";
 import Header from "components/Header";
 import { ResponsiveLine } from "@nivo/line";
-import { useGetSalesQuery } from "state/api";
+// import { useGetSalesQuery } from "state/api";
 
 const Monthly = () => {
-  const { data } = useGetSalesQuery();
+  // const { data } = useGetSalesQuery();
+  const { data } = {};
   const theme = useTheme();
 
   const [formattedData] = useMemo(() => {

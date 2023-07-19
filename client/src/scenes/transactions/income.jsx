@@ -88,6 +88,12 @@ const Income = () => {
 
   const columns = [
     {
+      field: "transactionID",
+      headerName: "Transaction ID",
+      flex: 1,
+      editable: false,
+    },
+    {
       field: "userId",
       headerName: "User ID",
       flex: 1,
@@ -103,7 +109,7 @@ const Income = () => {
       field: "cost",
       headerName: "Cost (INR)",
       flex: 1,
-      renderCell: (params) => `$${Number(params.value).toFixed(2)}`,
+      renderCell: (params) => `₹${Number(params.value).toFixed(2)}`,
       editable: true,
     },
     // {
@@ -154,8 +160,8 @@ const Income = () => {
     // },
   ];
 
-  const handleClick = () => {
-    console.log("clicked");
+  const addRecord = () => {
+    console.log("Add operation initiated");
   };
 
   return (
@@ -166,7 +172,7 @@ const Income = () => {
           variant="contained"
           color="success"
           startIcon={<AddIcon />}
-          onClick={handleClick}
+          onClick={addRecord}
           size="large"
         >
           Add record
@@ -212,8 +218,8 @@ const Income = () => {
           pagination
           page={page}
           pageSize={pageSize}
-          paginationMode="server"
-          sortingMode="server"
+          // paginationMode="server"
+          // sortingMode="server"
           onPageChange={(newPage) => setPage(newPage)}
           onPageSizeChange={(newPageSize) => setPageSize(newPageSize)}
           onSortModelChange={(newSortModel) => setSort(...newSortModel)}
